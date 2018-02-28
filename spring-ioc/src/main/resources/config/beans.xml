@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" name="zhangSanFeng,people" class="com.bestcode.entity.Person">
+        <property name="id" value="1" />
+        <property name="name" value="张三丰" />
+        <property name="age" value="100" />
+    </bean>
+
+    <bean id="clientService" class="com.bestcode.entity.ClientService" factory-method="createInstance" />
+
+    <!-- bean别名 -->
+    <alias name="people" alias="beans-person" />
+
+    <bean id="defaultServiceLocator" class="com.bestcode.entity.DefaultServiceLocator" />
+
+    <bean id="serverService" factory-bean="defaultServiceLocator" factory-method="createServerServiceInstance" />
+
+    <bean id="movieFinder" class="com.bestcode.entity.MovieFinder" />
+
+    <bean  id="simpleMovieLister" class="com.bestcode.entity.SimpleMovieLister" >
+        <property ref="movieFinder" name="movieFinder" />
+    </bean>
+
+    <bean id="exampleBean" class="com.bestcode.entity.ExampleBean" >
+        <constructor-arg name="years" value="2018" />
+        <constructor-arg name="ultimateAnswer" value="42" />
+    </bean>
+
+    <bean id="command" scope="prototype" class="com.bestcode.entity.Command" />
+
+    <bean id="commandManager" class="com.bestcode.spring.ioc.dependency.CommandManager" />
+
+    <!--<bean id="lookupCommandManager" class="com.bestcode.spring.ioc.dependency.LookupCommandManager" >-->
+        <!--<lookup-method bean="command" name="createCommand" />-->
+    <!--</bean>-->
+
+</beans>
