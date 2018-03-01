@@ -38,4 +38,10 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
         <!--<lookup-method bean="command" name="createCommand" />-->
     <!--</bean>-->
 
+    <bean class="com.bestcode.entity.MyValueCalcultor" id="myValueCalcultor" >
+        <replaced-method name="computeValue" replacer="replacementComputeValue" />
+    </bean>
+
+    <bean id="replacementComputeValue"  class="com.bestcode.entity.ReplacementComputeValue" />
+
 </beans>

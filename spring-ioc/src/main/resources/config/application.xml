@@ -10,4 +10,5 @@ http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springfr
 
     <import resource="beans.xml" />
 
+    <import resource="scope.xml" />
 </beans>
