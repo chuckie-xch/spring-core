@@ -44,4 +44,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="replacementComputeValue"  class="com.bestcode.entity.ReplacementComputeValue" />
 
+    <!-- bean 生命周期回调 -->
+    <bean id="foo" class="com.bestcode.spring.ioc.lifecycle.entity.Foo" init-method="initMethod" destroy-method="destroyMethod" />
 </beans>
